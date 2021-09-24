@@ -14,7 +14,6 @@ class AlgoruthmManager: AlgorithmProtocol {
      Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
      You may assume that each input would have exactly one solution, and you may not use the same element twice.
      You can return the answer in any order.
-     
      Input: nums = [2,7,11,15], target = 9
      Output: [0,1]
      Output: Because nums[0] + nums[1] == 9, we return [0, 1].
@@ -48,12 +47,17 @@ class AlgoruthmManager: AlgorithmProtocol {
      Explanation: "amanaplanacanalpanama" is a palindrome.
      */
     func isPalindromTest() {
-        
+        let s = "A man, a plan, a canal: Panama"
+        let result = isPalindrome(s)
+        print ("result: \(result)")
     }
     
-//    func isPalindrome(_ s: String) -> Bool {
-//
-//    }
+    func isPalindrome(_ s: String) -> Bool {
+        let removedNonAlphaNumerics = String(s.unicodeScalars.filter(CharacterSet.alphanumerics.contains))
+        let reversedInput = String(removedNonAlphaNumerics.reversed())
+        return removedNonAlphaNumerics.caseInsensitiveCompare(reversedInput) == .orderedSame
+        
+    }
     
     // MARK: - Valid Anagram
     /*
