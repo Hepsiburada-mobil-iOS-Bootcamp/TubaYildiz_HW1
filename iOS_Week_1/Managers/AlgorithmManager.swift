@@ -170,12 +170,24 @@ class AlgoruthmManager: AlgorithmProtocol {
 
      */
     func missingNumberTest() {
-        
+        let nums = [1,2,0]
+        let result = missingNumber(nums)
+        print ("result: \(result)")
     }
-    
-//    private func missingNumber(_ nums: [Int]) -> Int {
-//
-//    }
+
+    private func missingNumber(_ nums: [Int]) -> Int {
+
+        let n = nums.count
+        
+        for i in 0...n
+        {
+            if !nums.contains(i)
+            {
+                return i
+            }
+        }
+        return 0
+    }
     
     
 }
