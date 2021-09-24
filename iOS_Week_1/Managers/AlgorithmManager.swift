@@ -128,12 +128,37 @@ class AlgoruthmManager: AlgorithmProtocol {
      Output: [2,2]
      */
     func arrayIntersectionTest() {
-        
+        let nums1 = [1,2,2,1]
+        let nums2 = [2,2]
+        let result = intersect(nums1, nums2)
+        print("result: \(result)")
     }
-    
-//    func intersect(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
-//
-//    }
+
+    func intersect(_ nums1: [Int], _ nums2: [Int]) -> [Int]
+    {
+        //Countnums set is defined for counting numbers in nums1 array
+        //With this inputs {[1:2],[2:2]}
+        var countNums: [Int: Int]=[:]
+        var result = [Int]().self
+        for item in nums1
+        {
+            countNums[item] = countNums[item] ?? 0 + 1
+        }
+
+        for item in nums2
+        {
+            if let val = countNums[item]
+            {
+                if val < 0
+                {
+                    continue
+                }
+                countNums[item]  = val - 1
+                result.append(item)
+            }
+        }
+        return result
+    }
     
     // MARK: - Missing Number
     /*
