@@ -27,8 +27,17 @@ class AlgoruthmManager: AlgorithmProtocol {
     }
     
     private func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        // I solved of the question for you guys :D :D :D
-        return [0, 1]
+        var indexes = [Int]()
+        for i in 0..<nums.count {
+            if nums.contains(target-nums[i])
+            {
+                guard let index_2 = nums.firstIndex(of: (target-nums[i])) else {break}
+                indexes.append(i)
+                indexes.append(index_2)
+            }
+        }
+        
+        return indexes
     }
     
     // MARK: - IsPalindrome
