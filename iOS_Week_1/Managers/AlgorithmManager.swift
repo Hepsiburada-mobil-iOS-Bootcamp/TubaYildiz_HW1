@@ -113,11 +113,20 @@ class AlgoruthmManager: AlgorithmProtocol {
      The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
      */
     func mergeArraysTest() {
+        var nums1 = [1,2,3,0,0,0]
+        let nums2 = [2,5,6]
+        let m = 3
+        let n = 3
+        merge (&nums1, m, nums2, n)
+        
+        
+        print ("result: \(nums1)")
         
     }
-    
+
     private func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
-            
+        nums1 = Array(nums1.dropLast(nums1.count-m))
+        nums1 = (nums1 + Array(nums2.dropLast(nums2.count-n))).sorted()
     }
     
     // MARK: - Intersection of Two Arrays
